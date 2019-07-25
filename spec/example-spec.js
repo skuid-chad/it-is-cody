@@ -42,9 +42,9 @@ describe("Basic element tests", function() {
 
     beforeEach(async function() {
         await login();
-        console.log(await driver.getCookies());
+        console.log(await driver.manage().getCookies());
         await driver.sleep(10 * 1000);
-        console.log(await driver.getCookies());
+        console.log(await driver.manage().getCookies());
     });
 
     afterAll(async function() {
