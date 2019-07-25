@@ -30,12 +30,9 @@ var login = async function login() {
     await driver.wait(until.elementLocated(inpPassword), 10 * 1000);
     // Enter credentials and log in
     await driver.findElement(inpUsername).sendKeys(username);
-    await driver.sleep(1 * 1000);
     await driver.findElement(inpPassword).sendKeys(password);
-    await driver.sleep(1 * 1000);
     await driver.findElement(btnLogin).click();
     // Wait to be logged in
-    await driver.sleep(5 * 1000);
     await driver.wait(until.elementLocated(By.css('#skuid-sample-master')), 10 * 1000);
     console.log(await driver.getCurrentUrl());
 
@@ -45,6 +42,9 @@ describe("Basic element tests", function() {
 
     beforeEach(async function() {
         await login();
+        console.log(await driver.getCookies());
+        await driver.sleep(10 * 1000);
+        console.log(await driver.getCookies());
     });
 
     afterAll(async function() {
