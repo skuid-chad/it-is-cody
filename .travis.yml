@@ -6,7 +6,7 @@ services:
   - docker
 before_script:
   - docker pull selenium/standalone-chrome:latest
-  - docker run -d -p 4444:4444 --name selenium -v /dev/shm:/dev/shm selenium/standalone-chrome:latest
+  - docker run -d -p 4444:4444 -v /dev/shm:/dev/shm selenium/standalone-chrome:latest
 
 
 addons:
