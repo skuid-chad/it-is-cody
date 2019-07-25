@@ -59,7 +59,31 @@ describe("Basic element tests", function() {
             blockMessage: By.css('div.blockUI.blockMsg')
         }
         // Preview a test page
-        await driver.get('/ui/page/preview/SeleniumTest');
+        await driver.get(baseUrl + '/ui/page/preview/' + testData.pageName);
+        await driver.sleep(5000);
+        console.log(await driver.getCurrentUrl());
+        // Wait for button
+        await driver.wait(until.elementLocated(testData.button), 10 * 1000);
+        console.log(await driver.getCurrentUrl());
+        // Verify button is present
+        expect(await driver.findElement(testData.button).isDisplayed()).toBe(true);
+        // Click button
+        await driver.findElement(testData.button).click();
+        // Wait for and Verify Correct UI Block Message
+        await driver.wait(until.elementLocated(testData.blockMessage), 10 * 1000);
+        expect(await driver.findElement(testData.blockMessage).getText()).toBe('The button renders and is clickable.');
+
+    });
+
+    it("Click the button, Verify Correct UI Block Message", async function() {
+        // This test should pass
+        var testData = {
+            pageName: 'SeleniumTest',
+            button: By.css('#test-button'),
+            blockMessage: By.css('div.blockUI.blockMsg')
+        }
+        // Preview a test page
+        await driver.get(baseUrl + '/ui/page/preview/' + testData.pageName);
         await driver.sleep(5000);
         console.log(await driver.getCurrentUrl());
         // Wait for button
