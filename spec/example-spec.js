@@ -59,7 +59,7 @@ describe("Basic element tests", function() {
             blockMessage: By.css('div.blockUI.blockMsg')
         }
         // Preview a test page
-        await driver.get(baseUrl + '/ui/page/preview/' + testData.pageName);
+        await driver.get('/ui/page/preview/SeleniumTest');
         await driver.sleep(5000);
         console.log(await driver.getCurrentUrl());
         // Wait for button
