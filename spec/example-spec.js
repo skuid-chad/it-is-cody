@@ -33,45 +33,27 @@ var login = async function login() {
     await driver.findElement(inpPassword).sendKeys(password);
     await driver.findElement(btnLogin).click();
     // Wait to be logged in
-    await driver.wait(until.elementLocated(By.css('#skuid-sample-master')), 10 * 1000);
-    console.log(await driver.getCurrentUrl());
+    // await driver.wait(until.elementLocated(By.css('#skuid-sample-master')), 10 * 1000);
+    await driver.sleep(12 * 1000);
 
 }
 // Define tests using test framework, in this case Jasmine
 describe("Basic element tests", function() {
 
-    beforeEach(async function() {
-        await login();
-        console.log(await driver.manage().getCookies());
-        await driver.sleep(10 * 1000);
-        console.log(await driver.manage().getCookies());
-    });
+    // beforeEach(async function() {
+    //     await login();
+    // });
 
     afterAll(async function() {
         await driver.quit();
     });
 
-    it("Click the button, Verify Correct UI Block Message", async function() {
-        // This test should pass
-        var testData = {
-            pageName: 'SeleniumTest',
-            button: By.css('#test-button'),
-            blockMessage: By.css('div.blockUI.blockMsg')
-        }
-        // Preview a test page
-        await driver.get(baseUrl + '/ui/page/preview/' + testData.pageName);
-        await driver.sleep(5000);
+    it("Login and get sid cookie", async function() {
+        // Login and log cookie
+        await login();
+        let sidCookie = await driver.manage().getCookieNamed('sid-skuid');
+        console.log(sidCookie);
         console.log(await driver.getCurrentUrl());
-        // Wait for button
-        await driver.wait(until.elementLocated(testData.button), 10 * 1000);
-        console.log(await driver.getCurrentUrl());
-        // Verify button is present
-        expect(await driver.findElement(testData.button).isDisplayed()).toBe(true);
-        // Click button
-        await driver.findElement(testData.button).click();
-        // Wait for and Verify Correct UI Block Message
-        await driver.wait(until.elementLocated(testData.blockMessage), 10 * 1000);
-        expect(await driver.findElement(testData.blockMessage).getText()).toBe('The button renders and is clickable.');
 
     });
 
