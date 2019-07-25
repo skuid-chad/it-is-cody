@@ -27,7 +27,8 @@ var login = async function login() {
     // Load the Login page
     await driver.get(baseUrl + '/ui/login');
     // Wait until the page is loaded
-    await driver.wait(until.elementLocated(inpUsername), 10 * 1000);
+    await driver.wait(until.elementLocated(inpPassword), 10 * 1000);
+    await driver.sleep(5000);
     // Enter credentials and log in
     await driver.findElement(inpUsername).sendKeys(username);
     await driver.findElement(inpPassword).sendKeys(password);
