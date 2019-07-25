@@ -33,8 +33,7 @@ var login = async function login() {
     await driver.findElement(inpPassword).sendKeys(password);
     await driver.findElement(btnLogin).click();
     // Wait to be logged in
-    await driver.wait(until.titleIs('Skuid'));
-    await driver.sleep(5 * 1000);
+    await driver.wait(until.elementLocated(By.css('#skuid-sample-master')), 10 * 1000);
     console.log(await driver.getCurrentUrl());
 
 }
