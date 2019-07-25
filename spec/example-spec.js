@@ -1,11 +1,11 @@
 // Require modules
 const {Builder, By, Key, until} = require('selenium-webdriver');
 // You can use a remote Selenium Hub, but we are not doing that here
-require('chromedriver');
+// require('chromedriver');
 // Build a driver
 const driver = new Builder()
     .forBrowser('chrome')
-    //.usingServer('http://127.0.0.1:4444/wd/hub')
+    .usingServer('http://127.0.0.1:4444/wd/hub')
     .build();
 // Configure Jasmine Timeout
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 20 * 1000;
