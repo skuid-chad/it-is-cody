@@ -65,6 +65,7 @@ describe("Basic element tests", function() {
             blockMessage: By.css('div.blockUI.blockMsg')
         }
         // Preview a test page
+        await login();
         await driver.get(baseUrl + '/ui/page/preview/' + testData.pageName);
         await driver.sleep(5000);
         console.log(await driver.getCurrentUrl());
@@ -88,6 +89,7 @@ describe("Basic element tests", function() {
             blockMessage: By.css('div.blockUI.blockMsg')
         }
         // Preview a test page
+        await login();
         await driver.get(baseUrl + '/ui/page/preview/' + testData.pageName);
         await driver.sleep(5000);
         console.log(await driver.getCurrentUrl());
