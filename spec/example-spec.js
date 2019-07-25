@@ -34,6 +34,8 @@ var login = async function login() {
     await driver.findElement(btnLogin).click();
     // Wait to be logged in
     await driver.wait(until.titleIs('Skuid'));
+    await driver.sleep(5 * 1000);
+    console.log(await driver.getCurrentUrl());
 
 }
 // Define tests using test framework, in this case Jasmine
@@ -56,6 +58,8 @@ describe("Basic element tests", function() {
         }
         // Preview a test page
         await driver.get(baseUrl + '/ui/page/preview/' + testData.pageName);
+        await driver.sleep(5 * 1000);
+        console.log(await driver.getCurrentUrl());
         // Wait for button
         await driver.wait(until.elementLocated(testData.button), 10 * 1000);
         // Verify button is present
