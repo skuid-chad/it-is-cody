@@ -8,5 +8,5 @@ services:
 before_script:
   - docker pull selenium/standalone-chrome:latest
   - docker container run -d -p 127.0.0.1:4444:4444 -v /dev/shm:/dev/shm selenium/standalone-chrome:latest
-  - sleep 10
+  - sleep 10 # wait for selenium server to start
   - docker container ls
