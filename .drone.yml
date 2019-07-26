@@ -1,0 +1,12 @@
+pipeline:
+
+  test:
+    image: quay.io/skuid/node-te
+    secrets: [ SKUID_HOST, SKUID_UN, SKUID_PW ]
+  
+    commands:
+      - sh ./ci-cd.sh
+  
+services:
+  selenium:
+    image: selenium/standalone-chrome

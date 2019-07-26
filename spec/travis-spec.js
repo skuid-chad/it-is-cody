@@ -18,7 +18,7 @@ const password = process.env.SKUID_PW
  * Login to SKUID_HOST
  * This function does not check if already logged in
  */
-var login = async function login() {
+const login = async function login() {
     // Define Login elements
     let inpUsername = By.css('input:first-of-type');
     let inpPassword = By.css("input[type='password']");
@@ -33,16 +33,11 @@ var login = async function login() {
     await driver.findElement(inpPassword).sendKeys(password);
     await driver.findElement(btnLogin).click();
     // Wait to be logged in
-    // await driver.wait(until.elementLocated(By.css('#skuid-sample-master')), 10 * 1000);
-    await driver.sleep(10 * 1000);
+    await driver.wait(until.elementLocated(By.css('#skuid-sample-master')), 10 * 1000);
 
 }
 // Define tests using test framework, in this case Jasmine
 describe("Basic element tests", function() {
-
-    // beforeEach(async function() {
-    //     await login();
-    // });
 
     afterAll(async function() {
         await driver.quit();

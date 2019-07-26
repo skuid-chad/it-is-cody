@@ -9,7 +9,6 @@
   "author": "Skuid",
   "license": "ISC",
   "dependencies": {
-    "chromedriver": "^75.1.0",
     "install": "^0.12.2",
     "jasmine": "^3.4.0",
     "npm": "^6.10.2",
