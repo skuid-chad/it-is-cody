@@ -55,13 +55,7 @@ describe("Basic element tests", function() {
         // Preview a test page
         await driver.sleep(5 * 1000);
         console.log(await driver.getCurrentUrl());
-        await driver.get(baseUrl);
-        await driver.sleep(5 * 1000);
-        console.log(await driver.getCurrentUrl());
-        await driver.get(baseUrl + '/ui/page/preview/SeleniumTest');
-        await driver.sleep(5 * 1000);
-        console.log(await driver.getCurrentUrl());
-        await driver.get(baseUrl + '/ui/page/preview/' + testData.pageName);
+        await driver.get(`${baseUrl}/ui/page/preview/${testData.pageName}`);
         await driver.sleep(5 * 1000);
         console.log(await driver.getCurrentUrl());
         // Wait for button
