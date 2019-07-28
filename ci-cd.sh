@@ -9,7 +9,7 @@ wget -q -O ./node_modules/.bin/skuid https://github.com/skuid/skuid/releases/dow
 chmod +x ./node_modules/.bin/skuid
 
 # deploy skuid metadata to the target skuid site
-# ./node_modules/.bin/skuid deploy -d skuid-data
+./node_modules/.bin/skuid deploy -d skuid-data
 
 # Run tests
 npm test
