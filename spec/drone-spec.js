@@ -6,7 +6,7 @@ const driver = new Builder()
     .usingServer('http://selenium:4444/wd/hub')
     .build();
 // Configure Jasmine Timeout
-jasmine.DEFAULT_TIMEOUT_INTERVAL = 20 * 1000;
+jasmine.DEFAULT_TIMEOUT_INTERVAL = 100 * 1000;
 // Get Environment Varialbles
 const baseUrl = process.env.SKUID_HOST
 const username = process.env.SKUID_UN
