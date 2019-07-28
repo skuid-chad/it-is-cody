@@ -5,12 +5,18 @@ node_js:
 services:
   - docker
 
+before_install:
+  - docker -v
+  - docker-compose -v
+
+install:
+  - docker-compose build
+
 before_script:
-  - docker pull selenium/standalone-chrome:latest
-  - docker container run -d -p 127.0.0.1:4444:4444 -v /dev/shm:/dev/shm selenium/standalone-chrome:latest
-  - sleep 10
-  - docker container ls
+  - docker-compose up
 
 script:
-  - npm ci
-  - npm test
+  - docker-compose run web-driver ./ci-cd.sh
+
+after_script:
+  - docker-compose down

@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  selenium:
+    image: selenium/standalone-chrome
+    ports:
+      - '4444:4444'
+
+  web-driver:
+    build: .
+    image: web-driver
+    environment:
+      - SKUID_HOST=$SKUID_HOST
+      - SKUID_UN=$SKUID_UN
+      - SKUID_PW=$SKUID_PW
+  
