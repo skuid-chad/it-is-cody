@@ -54,7 +54,7 @@ describe("Basic element tests", function() {
         }
         // Preview a test page
         await driver.get(baseUrl + '/ui/page/preview/' + testData.pageName);
-        await browser.sleep(5 * 1000);
+        await driver.sleep(5 * 1000);
         let sidCookie = await driver.manage().getCookie('sid-skuid');
         console.log(sidCookie);
         console.log(await driver.getCurrentUrl());
